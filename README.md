@@ -9,3 +9,7 @@ information about smoothness. A new method is proposed called Momentum contrast 
 MocoFSD, outperform its self-supervised and supervised counterparts on two downstream tasks, fine-grained image classification,
 and image classification.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/Rohit8y/MocoFSD/main/.github/images/mocofsd_refined4_drawio.png" width="300">
+</p>
+

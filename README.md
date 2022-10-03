@@ -10,6 +10,6 @@ MocoFSD, outperform its self-supervised and supervised counterparts on two downs
 and image classification.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/Rohit8y/MocoFSD/main/.github/images/mocofsd_refined4_drawio.png" width="300">
+  <img src="https://raw.githubusercontent.com/Rohit8y/MocoFSD/main/.github/images/mocofsd_refined4_drawio.png" width="300">
 </p>
 

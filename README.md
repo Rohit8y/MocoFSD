@@ -1,5 +1,4 @@
-# MocoFSD
-PyTorch implementation of Momentum contrast in Frequency &amp; Spatial Domain
+# MocoFSD : Momentum contrast in Frequency &amp; Spatial Domain
 
 Since the inception of GPU, deep learning is widely used for many computer vision tasks, but most of these supervised
 and self-supervised methods use spatial information of the image to learn features. The spatial domain, gives information about the
@@ -9,3 +8,4 @@ information about smoothness. A new method is proposed called Momentum contrast 
 (MocoFSD), which learns feature representation by combining the frequency and spatial domain information. Features learned by
 MocoFSD, outperform its self-supervised and supervised counterparts on two downstream tasks, fine-grained image classification,
 and image classification.
+

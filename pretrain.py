@@ -4,8 +4,6 @@ import os
 import warnings
 import random
 
-
-
 import torch
 import torch.nn as nn
 import torch.nn.parallel
@@ -122,7 +120,6 @@ def main():
         # Simply call main_worker function
         main_worker(args.gpu, ngpus_per_node, args)
 
-
 def main_worker(gpu, ngpus_per_node, args):
     print('in main worker')
     args.gpu = gpu
@@ -150,7 +147,6 @@ def main_worker(gpu, ngpus_per_node, args):
     model = MoCo(
         models.__dict__[args.arch],
         args.moco_dim, args.moco_k, args.moco_m, args.moco_t, args.mlp)
-
 
     if args.distributed:
         # For multiprocessing distributed, DistributedDataParallel constructor
@@ -235,9 +231,7 @@ def main_worker(gpu, ngpus_per_node, args):
             normalize
         ]
 
-
     train_dataset=datasets.ImageFolder(traindir,transform=TwoCropsTransform(transforms.Compose(augmentation)))
-
 
     if args.distributed:
         train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)

@@ -54,7 +54,7 @@ from os.path import join
 import scipy.io
 
 
-from torchvision import transforms, datasets
+from torchvision import transforms
 import torch.utils.data as data
 from torchvision.datasets.utils import download_url, list_dir, list_files
 

@@ -4,7 +4,7 @@ import torch
 from torch import nn
 from torchvision import transforms
 
-from Pretraining.augmentation import GaussianBlur
+from tl.augmentation import GaussianBlur
 from loader.dataset import StanfordCarsDataset, AircraftDataset, CIFAR100Dataset, DTDDataset, dogs
 from models.generate_model import build_model
 from opt.train import train, validate

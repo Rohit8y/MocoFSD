@@ -17,9 +17,9 @@ import torchvision.transforms as transforms
 import torchvision.datasets as datasets
 import torchvision.models as models
 
-from Pretraining.MoCo import MoCo
-from Pretraining.augmentation import GaussianBlur, TwoCropsTransform
-from Pretraining.train import train, save_checkpoint
+from tl.MoCo import MoCo
+from tl.augmentation import GaussianBlur, TwoCropsTransform
+from tl.train import train, save_checkpoint
 from utils.cosine_decay import adjust_learning_rate
 
 parser = argparse.ArgumentParser(description='PyTorch ImageNet Training')
@@ -79,12 +79,13 @@ parser.add_argument('--moco-t', default=0.07, type=float,
                     help='softmax temperature (default: 0.07)')
 
 # options for moco v2
-parser.add_argument('--mlp', action='store_true',default=True,
+parser.add_argument('--mlp', action='store_true', default=True,
                     help='use mlp head')
-parser.add_argument('--aug-plus', action='store_true',default=True,
+parser.add_argument('--aug-plus', action='store_true', default=True,
                     help='use moco v2 data augmentation')
-parser.add_argument('--cos', action='store_true',default=True,
+parser.add_argument('--cos', action='store_true', default=True,
                     help='use cosine lr schedule')
+
 
 def main():
     args = parser.parse_args()
@@ -120,6 +121,7 @@ def main():
         # Simply call main_worker function
         main_worker(args.gpu, ngpus_per_node, args)
 
+
 def main_worker(gpu, ngpus_per_node, args):
     print('in main worker')
     args.gpu = gpu
@@ -128,6 +130,7 @@ def main_worker(gpu, ngpus_per_node, args):
     if args.multiprocessing_distributed and args.gpu != 0:
         def print_pass(*args):
             pass
+
         builtins.print = print_pass
 
     if args.gpu is not None:
@@ -231,7 +234,7 @@ def main_worker(gpu, ngpus_per_node, args):
             normalize
         ]
 
-    train_dataset=datasets.ImageFolder(traindir,transform=TwoCropsTransform(transforms.Compose(augmentation)))
+    train_dataset = datasets.ImageFolder(traindir, transform=TwoCropsTransform(transforms.Compose(augmentation)))
 
     if args.distributed:
         train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset)
@@ -251,10 +254,14 @@ def main_worker(gpu, ngpus_per_node, args):
         train(train_loader, model, criterion, optimizer, epoch, args)
 
         if not args.multiprocessing_distributed or (args.multiprocessing_distributed
-                and args.rank % ngpus_per_node == 0):
+                                                    and args.rank % ngpus_per_node == 0):
             save_checkpoint({
                 'epoch': epoch + 1,
                 'arch': args.arch,
                 'state_dict': model.state_dict(),
-                'optimizer' : optimizer.state_dict(),
+                'optimizer': optimizer.state_dict(),
             }, is_best=False, filename='dct_checkpoint_{:04d}.pth.tar'.format(epoch))
+
+
+if __name__ == '__main__':
+    main()

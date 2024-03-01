@@ -1,20 +1,56 @@
 # MocoFSD : Momentum contrast in Frequency &amp; Spatial Domain
 
-Momentum contrast in Frequency and Spatial Domain (MocoFSD), which learns feature representation by combining the frequency and spatial domain information. Features learned by MocoFSD, outperform its self-supervised and supervised counterparts on two downstream tasks, fine-grained image classification,
+### [**Contents**](#)
+1. [Description](#descr)
+1. [Installation](#install)
+2. [Data Preparation](#prepare)
+
+---
+
+### [**Description**](#) <a name="descr"></a>
+
+Momentum contrast in Frequency and Spatial Domain (MocoFSD) inspired by the Moco framework learns feature representation by combining the frequency and spatial domain information during the pre-training phase. Features learned by MocoFSD, outperform its self-supervised and supervised counterparts on two downstream tasks, fine-grained image classification,
 and image classification.
 
 ![mocofsd_refined4_drawio](https://user-images.githubusercontent.com/38680205/193492898-cc243b49-1e82-4e8c-9203-c5a3b471e849.png)
 
+---
 
+### [**Installation**](#) <a name="install"></a>
 
-### Preparation
+**1.** Clone the repository:
 
-Install PyTorch and ImageNet dataset following the [official PyTorch ImageNet training code](https://github.com/pytorch/examples/tree/master/imagenet).
-
-This repo aims to be minimal modifications on that code. Check the modifications by:
+``` shell
+git clone git@github.com:Rohit8y/MocoFSD.git
+cd MocoFSD
 ```
-diff PreTraining/mocov2_mgpu_dct_imagenet.py <(curl https://raw.githubusercontent.com/pytorch/examples/master/imagenet/main.py)
+
+**2.** Create a new Python environment and activate it:
+
+``` shell
+$ python3 -m venv py_env
+$ source py_env/bin/activate
 ```
+
+**3.** Install necessary packages:
+
+``` shell
+$ pip install -r requirements.txt
+```
+
+---
+
+### [***Data Preparation***](#) <a name="prepare"></a>
+
+- Download the ImageNet dataset from http://www.image-net.org/.
+- Then, move and extract the training and validation images to labeled subfolders, using [the following shell script](extract_ILSVRC.sh)
+- The following fine-tuning datasets will be downloaded using [the PyTorch API](https://pytorch.org/vision/stable/datasets.html) automatically in the code.
+  - Stanford Dogs
+  - Stanford Cars
+  - FGVC Aircraft
+  - DTD
+
+---
 
 ### Unsupervised Training
 

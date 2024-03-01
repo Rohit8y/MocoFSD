@@ -43,7 +43,7 @@ $ pip install -r requirements.txt
 ### [***Data Preparation***](#) <a name="prepare"></a>
 
 - Download the ImageNet dataset from http://www.image-net.org/.
-- Then, move and extract the training and validation images to labeled subfolders, using [the following shell script](extract_ILSVRC.sh)
+- Then, move and extract the training and validation images to labeled subfolders, using [the following shell script](https://github.com/pytorch/examples/blob/main/imagenet/extract_ILSVRC.sh)
 - The following fine-tuning datasets will be downloaded using [the PyTorch API](https://pytorch.org/vision/stable/datasets.html) automatically in the code.
   - Stanford Dogs
   - Stanford Cars

@@ -108,10 +108,19 @@ optional arguments:
 Using the pre-trained model we have given the option to fine-tune on four downstream datasets: Stanford Cars, Stanford Dogs, FGVC Aircraft, and DTD. To optimise these models for the downstream task, run:
 
 ```
-python main.py --arch resnet50 \
---dataset stanfordCars \
---epochs 100
---model <path to checkpoint>
+python main.py -h
+
+usage: main.py [-h] [--arch ARCH] [--epochs EPOCHS] [--lr LR] [--batch-size BS]
+               [--wd WD][--dataset DATASET] [--model MODEL]
+options:
+  --help                show this help message and exit
+  --arch                model architecture: resnet18 | resnet34 | resnet50 (default: resnet18)
+  --epochs              number of total epochs to run (default: 100)
+  --lr                  initial learning rate (default: 0.001)
+  --wd                  weight decay (default: 1e-4)
+  --dataset             fine-tuning dataset to usage: stanfordCars | stanfordDogs | aircraft | cifar100 | dtd (default: stanfordCars)
+  --model               path to the pre-trained model
+
 ```
 We used a grid search to find the optimal value of other hyperparameters.  Once the training process is completed, the final model will be saved by the name <dataset_name>_best_model.pth.tar
 

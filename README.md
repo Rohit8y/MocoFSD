@@ -1,4 +1,4 @@
-# MocoFSD : Momentum contrast in Frequency &amp; Spatial Domain
+# Momentum contrast in frequency &amp; spatial domain <br> for fine-grained image classification
 
 ### [**Contents**](#)
 1. [Description](#descr)

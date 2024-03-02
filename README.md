@@ -2,19 +2,22 @@
 
 ### [**Contents**](#)
 1. [Description](#descr)
-1. [Installation](#install)
-2. [Data Preparation](#prepare)
-3. [Self-Supervised Training](#pretrain)
-4. [Fine-tuning](#finetune)
+2. [Installation](#install)
+3. [Data Preparation](#prepare)
+4. [Self-Supervised Training](#pretrain)
+5. [Fine-tuning](#finetune)
+6. [References](#ref)
 
 ---
 
 ### [**Description**](#) <a name="descr"></a>
 
-Momentum contrast in Frequency and Spatial Domain (MocoFSD) inspired by the Moco framework learns feature representation by combining the frequency and spatial domain information during the pre-training phase. Features learned by MocoFSD, outperform its self-supervised and supervised counterparts on two downstream tasks, fine-grained image classification,
+Momentum contrast in Frequency and Spatial Domain (MocoFSD) inspired by the Moco [[1]](#1) framework learns feature representation by combining the frequency and spatial domain information during the pre-training phase. Features learned by MocoFSD, outperform its self-supervised and supervised counterparts on two downstream tasks, fine-grained image classification,
 and image classification.
 
 ![mocofsd_refined4_drawio](https://user-images.githubusercontent.com/38680205/193492898-cc243b49-1e82-4e8c-9203-c5a3b471e849.png)
+
+This project was part of the research internship done under [Prof. Jiapan Guo](http://jiapan.nl/) at the [University of Groningen](https://rug.nl) for the course WMCS021-15.
 
 ---
 
@@ -111,3 +114,12 @@ python main.py --arch resnet50 \
 --model <path to checkpoint>
 ```
 We used a grid search to find the optimal value of other hyperparameters.  Once the training process is completed, the final model will be saved by the name <dataset_name>_best_model.pth.tar
+
+---
+
+### [***References***](#) <a name="ref"></a>
+
+<a id="1">[1]</a> 
+He, K., Fan, H., Wu, Y., Xie, S., & Girshick, R. (2020). Momentum contrast for unsupervised visual representation learning. *In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (pp. 9729-9738).*
+
+---

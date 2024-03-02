@@ -105,7 +105,7 @@ optional arguments:
 ---
 
 ### [***Fine-Tuning***](#) <a name="finetune"></a>
-Using the pre-trained model we have given the option to fine-tune on four downstream datasets: Stanford Cars, Stanford Dogs, FGVC Aircraft, and DTD. To optimise these models for the downstream task, run:
+Using the pre-trained model we have given the option to fine-tune on five downstream datasets: Stanford Cars, Stanford Dogs, CIFAR100, FGVC Aircraft, and DTD. To optimise these models for the downstream task, run:
 
 ```
 python main.py -h
@@ -117,12 +117,13 @@ options:
   --arch                model architecture: resnet18 | resnet34 | resnet50 (default: resnet18)
   --epochs              number of total epochs to run (default: 100)
   --lr                  initial learning rate (default: 0.001)
+  --batch-size          mini-batch size (default: 32)
   --wd                  weight decay (default: 1e-4)
   --dataset             fine-tuning dataset to usage: stanfordCars | stanfordDogs | aircraft | cifar100 | dtd (default: stanfordCars)
   --model               path to the pre-trained model
 
 ```
-We used a grid search to find the optimal value of other hyperparameters.  Once the training process is completed, the final model will be saved by the name <dataset_name>_best_model.pth.tar
+This implementation works on single-gpu and does not support multi-gpu training. We used a grid search to find the optimal value of other hyperparameters.  Once the training process is completed, the final model will be saved by the name <dataset_name>_best_model.pth.tar
 
 ---
 

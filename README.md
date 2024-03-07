@@ -53,6 +53,7 @@ $ pip install -r requirements.txt
   - Stanford Dogs
   - Stanford Cars
   - FGVC Aircraft
+  - CIFAR 100
   - DTD
 
 ---

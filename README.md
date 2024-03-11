@@ -26,8 +26,8 @@ This project was part of the research internship done under [Prof. Jiapan Guo](h
 **1.** Clone the repository:
 
 ``` shell
-git clone git@github.com:Rohit8y/MocoFSD.git
-cd MocoFSD
+$ git clone git@github.com:Rohit8y/MocoFSD.git
+$ cd MocoFSD
 ```
 
 **2.** Create a new Python environment and activate it:
